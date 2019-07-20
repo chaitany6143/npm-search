@@ -1,0 +1,10 @@
+.buttonContainer {
+  display: flex;
+  flex-direction: row;
+}
+
+.textContainer {
+  font-size: 8px;
+  color: red;
+  text-align: center;
+}

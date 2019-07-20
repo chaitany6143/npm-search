@@ -1,11 +1,7 @@
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
-import Table from '@material-ui/core/Table';
-import TableBody from '@material-ui/core/TableBody';
-import TableCell from '@material-ui/core/TableCell';
-import TableHead from '@material-ui/core/TableHead';
-import TableRow from '@material-ui/core/TableRow';
-import Paper from '@material-ui/core/Paper';
+import { Table, TableBody, TableCell, TableHead, TableRow, Paper } from '@material-ui/core';
+import InstallAction from './InstallAction/InstallAction';
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -50,6 +46,7 @@ export default function SimpleTable({searchResults}) {
             <StyledTableCell align="left">Description</StyledTableCell>
             <StyledTableCell align="left">Score</StyledTableCell>
             <StyledTableCell align="left">URL</StyledTableCell>
+            <StyledTableCell align="left">Installation</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -64,6 +61,9 @@ export default function SimpleTable({searchResults}) {
                 <a href={row.url} rel="noopener noreferrer" target="_blank">
                   {row.url}
                 </a>
+              </TableCell>
+              <TableCell>
+                <InstallAction packageName={row.name}/>
               </TableCell>
             </TableRow>
           ))}
