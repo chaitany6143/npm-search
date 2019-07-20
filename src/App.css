@@ -50,11 +50,13 @@ button {
 button.yarn {
   background-color: #2288B6;
   border: 1px solid #2288B6;
+  cursor: pointer;
 }
 
 button.npm {
   background-color: #FB3B49;
   border: 1px solid #FB3B49;
+  cursor: pointer;
 }
 
 .search {
