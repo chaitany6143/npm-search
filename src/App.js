@@ -2,19 +2,26 @@ import React from 'react';
 import './App.css';
 import SimpleTable from './components/SimpleTable';
 import {fetchSearchResult} from './utils/fetchSearchResult';
+import Loader from 'react-loader-spinner'
 
 class App extends React.Component {
   state = {
     text: '',
-    searchResults: []
+    searchResults: [],
+    isLoadingResults: false,
   };
 
   shouldSearch = () => this.state.text.length > 3;
 
   performSearch = () => {
     const { text } = this.state;
-    fetchSearchResult(text).then(response => {
-    this.setState({ searchResults: response })
+    this.setState( { isLoadingResults: true}, () => {
+      fetchSearchResult(text).then(response => {
+        this.setState({
+          searchResults: response,
+          isLoadingResults: false
+        })
+      });
     });
   };
 
@@ -46,7 +53,8 @@ class App extends React.Component {
             onChange={this.onTextEntered}
           />
         </div>
-        <SimpleTable searchResults={searchResults}/>
+        { this.state.isLoadingResults && <Loader type="ThreeDots" color="#somecolor" height={80} width={80} /> }
+        { this.state.searchResults.length > 0 && !this.state.isLoadingResults && <SimpleTable searchResults={searchResults}/> }
       </div>
     );
   }
