@@ -34,14 +34,18 @@
 }
 
 .search input {
-  border-style:solid;
-  border-width: 2px;
+  position: relative;
+  width: 100%;
+  border-radius: 5px;
+  font-size: 16px;
+  line-height: 19px;
 }
 
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }

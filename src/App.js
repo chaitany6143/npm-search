@@ -6,7 +6,7 @@ import SimpleTable from './components/SimpleTable';
 class App extends React.Component {
 
   state = {
-    text: 'Enter the npm module here'
+    text: ''
   };
 
   onTextEntered = (event) => {
@@ -19,6 +19,7 @@ class App extends React.Component {
         <div className="search">
           <input
             type="text"
+            placeholder="Enter the npm module here"
             value={this.state.text}
             onChange={this.onTextEntered}
           />
