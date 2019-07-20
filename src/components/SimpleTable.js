@@ -25,12 +25,12 @@ const StyledTableCell = withStyles(theme => ({
   },
 }))(TableCell);
 
-function createData({name, description, score, url}) {
+function createData({name, description, score, links}) {
   return ({
     name,
     description,
     score,
-    url,
+    links,
   });
 }
 
@@ -54,7 +54,7 @@ export default function SimpleTable({searchResults}) {
           {data.map(row => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row" style={{fontSize: 12, fontFamily: 'monospace'}}>
-                {row.name}
+                <a>{row.name}</a>
               </TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.description}</TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>
@@ -66,8 +66,8 @@ export default function SimpleTable({searchResults}) {
                 </ReactTooltip>
                 </TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>
-                <a href={row.url} rel="noopener noreferrer" target="_blank">
-                  {row.url}
+                <a href={row.links.homepage} rel="noopener noreferrer" target="_blank">
+                  {row.links.homepage}
                 </a>
               </TableCell>
               <TableCell>
