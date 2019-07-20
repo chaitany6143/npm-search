@@ -1,7 +1,7 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-//import Search from './Search';
+import SimpleTable from './components/SimpleTable';
 
 class App extends React.Component {
 
@@ -9,9 +9,8 @@ class App extends React.Component {
     text: 'Enter the npm module here'
   };
 
-  onTextEntered = (value) => {
-    console.log(JSON.stringify(value));
-    this.setState({ text: value });
+  onTextEntered = (event) => {
+    this.setState({ text: event.target.value });
   };
 
   render() {
@@ -24,6 +23,7 @@ class App extends React.Component {
             onChange={this.onTextEntered}
           />
         </div>
+        <SimpleTable />
       </div>
     );
   }
