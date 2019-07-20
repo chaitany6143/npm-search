@@ -1,10 +1,17 @@
 {
-  "short_name": "React App",
-  "name": "React Extension",
+  "short_name": "NPM Search",
+  "name": "NPM Search",
   "manifest_version": 2,
+  "description": "Search for NPM directories easily",
   "browser_action": {
     "default_popup": "index.html",
-    "default_title": "React Ext"
+    "default_title": "NPM Search",
+    "default_icon": "images/icon128.png"
   },
-  "version": "1.0"
+  "version": "1.0",
+  "icons": {
+    "16": "images/icon16.png",
+    "48": "images/icon48.png",
+    "128": "images/icon128.png"
+  }
 }
