@@ -37,7 +37,7 @@ const rows = [
   createData('@material-ui/core', `React components that implement Google's Material Design.`, 0.50, 'https://material-ui.com/')
 ];
 
-export default function SimpleTable() {
+export default function SimpleTable({searchResults}) {
   const classes = useStyles();
 
   return (

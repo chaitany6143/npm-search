@@ -1,30 +1,39 @@
 import React from 'react';
-import logo from './logo.svg';
 import './App.css';
 import SimpleTable from './components/SimpleTable';
+import {fetchSearchResult} from './utils/fetchSearchResult';
 
 class App extends React.Component {
-
   state = {
-    text: ''
+    text: '',
+    searchResults: []
   };
 
-  onTextEntered = (event) => {
-    this.setState({ text: event.target.value });
-  };
+  componentDidUpdate(prevProps, prevState, snapshot) {
+    if (prevState.text !== this.state.text) {
+      fetchSearchResult(this.state.text)
+        .then(response => this.setState({
+        searchResults: response && response.results
+      }))
+    }
+  }
+
+  onTextEntered = (event) => this.setState({ text: event.target.value });
 
   render() {
+    const {text, searchResults} = this.state;
+
     return (
       <div className="App">
         <div className="search">
           <input
             type="text"
             placeholder="Enter the npm module here"
-            value={this.state.text}
+            value={text}
             onChange={this.onTextEntered}
           />
         </div>
-        <SimpleTable />
+        <SimpleTable searchResults={searchResults}/>
       </div>
     );
   }
