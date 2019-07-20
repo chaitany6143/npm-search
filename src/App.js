@@ -1,26 +1,33 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+//import Search from './Search';
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+class App extends React.Component {
+
+  state = {
+    text: 'Enter the npm module here'
+  };
+
+  onTextEntered = (value) => {
+    console.log(JSON.stringify(value));
+    this.setState({ text: value });
+  };
+
+  render() {
+    return (
+      <div className="App">
+        <div className="search">
+          <input
+            type="text"
+            value={this.state.text}
+            onChange={this.onTextEntered}
+          />
+        </div>
+      </div>
+    );
+  }
+
 }
 
 export default App;

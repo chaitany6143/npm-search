@@ -1,5 +1,7 @@
 .App {
   text-align: center;
+  width: 500px;
+  height: 300px;
 }
 
 .App-logo {
@@ -21,6 +23,19 @@
 
 .App-link {
   color: #61dafb;
+}
+
+.search {
+  position: relative;
+  display: inline-block;
+  top: 45px;
+  width: 80%;
+  height: 20%;
+}
+
+.search input {
+  border-style:solid;
+  border-width: 2px;
 }
 
 @keyframes App-logo-spin {
