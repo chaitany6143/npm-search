@@ -24,7 +24,7 @@ export async function fetchSearchResult(searchString) {
       name: result.package.name,
       description: result.package.description,
       score: result.score,
-      link: result.package.links.homepage
+      url: result.package.links.homepage
     }))
   } catch (e) {
     console.error(e)
