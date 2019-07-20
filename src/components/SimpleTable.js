@@ -56,7 +56,7 @@ export default function SimpleTable({searchResults}) {
               <TableCell component="th" scope="row" style={{fontSize: 12, fontFamily: 'monospace'}}>
                 <a href={row.links.npm} target="_blank">{row.name}</a>
               </TableCell>
-              <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.description}</TableCell>
+              <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.description ? row.description : '-'}</TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>{ row.score.final ? Math.floor(row.score.final * 100) : '-'} <a data-tip data-for={'a' + index}><img style={{verticalAlign: 'sub'}} src={'images/info-14.png'}/></a>
                 <ReactTooltip id={'a'+ index} place="bottom" type="info" effect="float">
                   <p>Quality: { row.score.detail.quality ? Math.floor(row.score.detail.quality  * 100) : '-' }</p>
@@ -64,10 +64,22 @@ export default function SimpleTable({searchResults}) {
                   <p>Maintenance: { row.score.detail.maintenance ? Math.floor(row.score.detail.maintenance * 100) : '-'}</p>
                 </ReactTooltip>
                 </TableCell>
-              <TableCell style={{fontSize: 12, textAlign: 'left'}}>
-                <a href={row.links.homepage} rel="noopener noreferrer" target="_blank">
-                  {row.links.homepage}
-                </a>
+              <TableCell style={{fontSize: 20, textAlign: 'left'}}>
+                {
+                  row.links.homepage !== row.links.repository ? <a style={{color: 'black'}} href={row.links.homepage} rel="noopener noreferrer" target="_blank">
+                      <span className="fa fa-home" />
+                </a> :
+                    null
+
+                }
+                {
+                  row.links.repository ? <a style={{marginLeft: 5, color: 'black'}} href={row.links.repository} rel="noopener noreferrer" target="_blank">
+                    <span className="fa fa-code-fork" />
+                  </a> : null
+                }
+                {
+                  (!row.links.homepage && !row.links.repository) && '-'
+                }
               </TableCell>
               <TableCell>
                 <InstallAction packageName={row.name}/>
