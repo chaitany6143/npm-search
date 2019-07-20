@@ -9,17 +9,30 @@ class App extends React.Component {
     searchResults: []
   };
 
-  componentDidUpdate(prevProps, prevState, snapshot) {
-    if (prevState.text !== this.state.text) {
-      fetchSearchResult(this.state.text)
-        .then(response => this.setState({
-        searchResults: response && response.results
-      }))
-    }
-  }
+  shouldSearch = () => this.state.text.length > 3;
 
-  onTextEntered = (event) => this.setState({ text: event.target.value });
+  performSearch = () => {
+    const { text } = this.state;
+    fetchSearchResult(text).then(response => {
+    this.setState({ searchResults: response.results })
+    });
+  };
 
+  clearSearchResults = () => {
+    this.setState({ searchResults: []});
+  };
+
+  onTextEntered = (event) => {
+    const { value } = event.target;
+    this.setState({ text: value }, () => {
+      if (this.shouldSearch()) {
+        this.performSearch();
+      } else {
+        this.clearSearchResults();
+      }
+    });
+  };
+  
   render() {
     const {text, searchResults} = this.state;
 
