@@ -63,6 +63,7 @@ div#root {
 
 ::-webkit-input-placeholder {
   color: white;
+  opacity: 0.5;
 }
 
 @keyframes App-logo-spin {
