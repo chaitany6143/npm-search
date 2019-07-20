@@ -51,15 +51,14 @@ export default function SimpleTable({searchResults}) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {data.map(row => (
+          {data.map((row, index) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row" style={{fontSize: 12, fontFamily: 'monospace'}}>
                 <a href={row.links.npm} target="_blank">{row.name}</a>
               </TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.description}</TableCell>
-              <TableCell style={{fontSize: 12, textAlign: 'left'}}>
-                <p>{ row.score.final ? Math.floor(row.score.final * 100) : '-'} <a data-tip data-for="scoreTooltip"><img style={{verticalAlign: 'sub'}} src={'images/info-14.png'}/></a></p>
-                <ReactTooltip id="scoreTooltip" place="bottom" type="info" effect="float">
+              <TableCell style={{fontSize: 12, textAlign: 'left'}}>{ row.score.final ? Math.floor(row.score.final * 100) : '-'} <a data-tip data-for={'a' + index}><img style={{verticalAlign: 'sub'}} src={'images/info-14.png'}/></a>
+                <ReactTooltip id={'a'+ index} place="bottom" type="info" effect="float">
                   <p>Quality: { row.score.detail.quality ? Math.floor(row.score.detail.quality  * 100) : '-' }</p>
                   <p>Popularity: { row.score.detail.popularity ? Math.floor(row.score.detail.popularity * 100) : '-'}</p>
                   <p>Maintenance: { row.score.detail.maintenance ? Math.floor(row.score.detail.maintenance * 100) : '-'}</p>
