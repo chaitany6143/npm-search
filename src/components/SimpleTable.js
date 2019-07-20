@@ -47,9 +47,9 @@ export default function SimpleTable({searchResults}) {
         <TableHead>
           <TableRow>
             <StyledTableCell>Name</StyledTableCell>
-            <StyledTableCell align="right">Description</StyledTableCell>
-            <StyledTableCell align="right">Score</StyledTableCell>
-            <StyledTableCell align="right">URL</StyledTableCell>
+            <StyledTableCell align="left">Description</StyledTableCell>
+            <StyledTableCell align="left">Score</StyledTableCell>
+            <StyledTableCell align="left">URL</StyledTableCell>
           </TableRow>
         </TableHead>
         <TableBody>
@@ -58,9 +58,9 @@ export default function SimpleTable({searchResults}) {
               <TableCell component="th" scope="row">
                 {row.name}
               </TableCell>
-              <TableCell align="right">{row.description}</TableCell>
-              <TableCell align="right">{row.score}</TableCell>
-              <TableCell align="right">
+              <TableCell align="left">{row.description}</TableCell>
+              <TableCell align="left">{row.score}</TableCell>
+              <TableCell align="left">
                 <a href={row.url} rel="noopener noreferrer" target="_blank">
                   {row.url}
                 </a>
