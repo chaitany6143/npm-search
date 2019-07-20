@@ -1,7 +1,8 @@
 .App {
   text-align: center;
-  width: 500px;
-  height: 300px;
+  background-color: #F8F4F4;
+  min-width: 600px;
+  min-height: 120px;
 }
 
 .App-logo {
@@ -25,20 +26,43 @@
   color: #61dafb;
 }
 
+div#root {
+  height: 100%;
+  background-color: #F8F4F4;
+}
+
 .search {
   position: relative;
-  display: inline-block;
   top: 45px;
-  width: 80%;
   height: 20%;
+  margin: 0 auto;
+  max-width: 300px;
+  padding-bottom: 40px;
 }
 
 .search input {
-  position: relative;
   width: 100%;
   border-radius: 5px;
   font-size: 16px;
+  height: 32px;
   line-height: 19px;
+  background-color: #FB3B49;
+  border: 1px solid #FB3B49;
+  color: white;
+  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  text-indent: 30px;
+  box-shadow: 0 0 3px #ccc;
+}
+
+.fa-search {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  color: white;
+}
+
+::-webkit-input-placeholder {
+  color: white;
 }
 
 @keyframes App-logo-spin {

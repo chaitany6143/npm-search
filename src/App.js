@@ -46,6 +46,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="search">
+          <span class="fa fa-search"></span>
           <input
             type="text"
             placeholder="Enter the npm module here"
@@ -55,6 +56,7 @@ class App extends React.Component {
         </div>
         { this.state.isLoadingResults && <Loader type="ThreeDots" color="#somecolor" height={80} width={80} /> }
         { this.state.searchResults.length > 0 && !this.state.isLoadingResults && <SimpleTable searchResults={searchResults}/> }
+        { this.state.searchResults.length === 0 && !this.state.isLoadingResults }
       </div>
     );
   }
