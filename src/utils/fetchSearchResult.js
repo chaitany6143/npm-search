@@ -17,7 +17,15 @@ export async function fetchSearchResult(searchString) {
         'Content-Type': 'application/json',
       }
     });
-    return response.json()
+
+    const jsonResponse = await response.json();
+
+    return jsonResponse.results.map(result => ({
+      name: result.package.name,
+      description: result.package.description,
+      score: result.score,
+      link: result.package.links.homepage
+    }))
   } catch (e) {
     console.error(e)
   }

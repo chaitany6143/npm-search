@@ -14,7 +14,7 @@ class App extends React.Component {
   performSearch = () => {
     const { text } = this.state;
     fetchSearchResult(text).then(response => {
-    this.setState({ searchResults: response.results })
+    this.setState({ searchResults: response })
     });
   };
 

@@ -28,17 +28,18 @@ const StyledTableCell = withStyles(theme => ({
   },
 }))(TableCell);
 
-function createData(name, description, score, url) {
-  return { name, description, score, url };
+function createData({name, description, score, url}) {
+  return ({
+    name,
+    description,
+    score: score && score.final,
+    url
+  });
 }
-
-const rows = [
-  createData('material', 'A lightweight implementation of Material Design Components - ES6', 1.00, 'https://github.com/floor/material'),
-  createData('@material-ui/core', `React components that implement Google's Material Design.`, 0.50, 'https://material-ui.com/')
-];
 
 export default function SimpleTable({searchResults}) {
   const classes = useStyles();
+  const data = searchResults.map(result => createData(result));
 
   return (
     <Paper className={classes.root}>
@@ -52,7 +53,7 @@ export default function SimpleTable({searchResults}) {
           </TableRow>
         </TableHead>
         <TableBody>
-          {rows.map(row => (
+          {data.map(row => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row">
                 {row.name}
