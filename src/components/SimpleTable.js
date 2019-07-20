@@ -73,16 +73,16 @@ export default function SimpleTable({searchResults}) {
                 </TableCell>
               <TableCell style={{fontSize: 18, textAlign: 'left'}}>
                 {
-                  row.links.homepage !== row.links.repository ? <a style={{color: 'black'}} href={row.links.homepage} rel="noopener noreferrer" target="_blank">
+                  row.links.homepage !== row.links.repository ? <div onClick={openInNewTab(row.links.homepage)} style={{textDecoration: 'underline', cursor: 'pointer', color: 'black'}} rel="noopener noreferrer">
                       <span className="fa fa-home" />
-                </a> :
+                </div> :
                     null
 
                 }
                 {
-                  row.links.repository ? <a style={{marginLeft: 5, color: 'black'}} href={row.links.repository} rel="noopener noreferrer" target="_blank">
+                  row.links.repository ? <div onClick={openInNewTab(row.links.repository)} style={{marginLeft: 5, color: 'black', textDecoration: 'underline', cursor: 'pointer'}} rel="noopener noreferrer">
                     <span className="fa fa-code-fork" />
-                  </a> : null
+                  </div> : null
                 }
                 {
                   (!row.links.homepage && !row.links.repository) && '-'
