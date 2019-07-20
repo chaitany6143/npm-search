@@ -9,10 +9,10 @@ const InstallAction = ({packageName}) => {
   return (
     <div>
       <div className={styles.buttonContainer}>
-        <button onClick={() => navigator.clipboard.writeText(yarnCommand)
+        <button class="yarn" onClick={() => navigator.clipboard.writeText(yarnCommand)
           .then(() => setCopy(true))}>yarn
         </button>
-        <button onClick={() => navigator.clipboard.writeText(npmCommand)
+        <button class="npm" onClick={() => navigator.clipboard.writeText(npmCommand)
           .then(() => setCopy(true))}>npm
         </button>
       </div>
