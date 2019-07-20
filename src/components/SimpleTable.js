@@ -53,7 +53,7 @@ export default function SimpleTable({searchResults}) {
             <StyledTableCell>Name</StyledTableCell>
             <StyledTableCell align="left">Description</StyledTableCell>
             <StyledTableCell align="left">Score</StyledTableCell>
-            <StyledTableCell align="left">URL</StyledTableCell>
+            <StyledTableCell style={{width: 35}} align="left">URL</StyledTableCell>
             <StyledTableCell align="left">Installation</StyledTableCell>
           </TableRow>
         </TableHead>
@@ -71,7 +71,7 @@ export default function SimpleTable({searchResults}) {
                   <p>Maintenance: { row.score.detail.maintenance ? Math.floor(row.score.detail.maintenance * 100) : '-'}</p>
                 </ReactTooltip>
                 </TableCell>
-              <TableCell style={{fontSize: 14, textAlign: 'left'}}>
+              <TableCell style={{fontSize: 18, textAlign: 'left'}}>
                 {
                   row.links.homepage !== row.links.repository ? <a style={{color: 'black'}} href={row.links.homepage} rel="noopener noreferrer" target="_blank">
                       <span className="fa fa-home" />

@@ -47,6 +47,10 @@ button {
   margin: 3px;
 }
 
+button:hover {
+  opacity: 0.5;
+}
+
 button.yarn {
   background-color: #2288B6;
   border: 1px solid #2288B6;
