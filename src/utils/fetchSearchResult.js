@@ -25,7 +25,7 @@ export async function fetchSearchResult(searchString) {
       description: result.package.description,
       score: result.score,
       url: result.package.links.homepage
-    }))
+    })).sort((a, b) => b.score.final - a.score.final)
   } catch (e) {
     console.error(e)
   }
