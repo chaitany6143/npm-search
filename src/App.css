@@ -1,6 +1,6 @@
 .App {
   text-align: center;
-  background-color: #F8F4F4;
+  background-color: #f8f4f4;
   min-width: 600px;
   min-height: 120px;
 }
@@ -28,11 +28,11 @@
 
 div#root {
   height: 100%;
-  background-color: #F8F4F4;
+  background-color: #f8f4f4;
 }
 
 a {
-  color: #FB3B49;
+  color: #fb3b49;
   text-decoration: none;
 }
 
@@ -52,14 +52,14 @@ button:hover {
 }
 
 button.yarn {
-  background-color: #2288B6;
-  border: 1px solid #2288B6;
+  background-color: #2288b6;
+  border: 1px solid #2288b6;
   cursor: pointer;
 }
 
 button.npm {
-  background-color: #FB3B49;
-  border: 1px solid #FB3B49;
+  background-color: #fb3b49;
+  border: 1px solid #fb3b49;
   cursor: pointer;
 }
 
@@ -78,10 +78,10 @@ button.npm {
   font-size: 16px;
   height: 32px;
   line-height: 19px;
-  background-color: #FB3B49;
-  border: 1px solid #FB3B49;
+  background-color: #fb3b49;
+  border: 1px solid #fb3b49;
   color: white;
-  font-family: "Roboto", "Helvetica", "Arial", sans-serif;
+  font-family: 'Roboto', 'Helvetica', 'Arial', sans-serif;
   text-indent: 30px;
   box-shadow: 0 0 3px #ccc;
 }
