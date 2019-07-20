@@ -1,3 +1,5 @@
+/*global chrome*/
+
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableHead, TableRow, Paper } from '@material-ui/core';
@@ -38,6 +40,11 @@ export default function SimpleTable({searchResults}) {
   const classes = useStyles();
   const data = searchResults.map(result => createData(result));
 
+  function openInNewTab(url) {
+    return () => {
+      chrome.tabs.create({url: url, active: false});
+    }
+  }
   return (
     <Paper className={classes.root}>
       <Table className={classes.table}>
@@ -54,7 +61,7 @@ export default function SimpleTable({searchResults}) {
           {data.map((row, index) => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row" style={{fontSize: 12, fontFamily: 'monospace'}}>
-                <a href={row.links.npm} target="_blank">{row.name}</a>
+                <div style={{textDecoration: 'underline', cursor: 'pointer', color: '#FB3B49'}} onClick={openInNewTab(row.links.npm)}>{row.name}</div>
               </TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.description ? row.description : '-'}</TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>{ row.score.final ? Math.floor(row.score.final * 100) : '-'} <a data-tip data-for={'a' + index}><img style={{verticalAlign: 'sub'}} src={'images/info-14.png'}/></a>
