@@ -1,6 +1,7 @@
 import React from 'react';
 import { makeStyles, withStyles } from '@material-ui/core/styles';
 import { Table, TableBody, TableCell, TableHead, TableRow, Paper } from '@material-ui/core';
+import ReactTooltip from 'react-tooltip'
 import InstallAction from './InstallAction/InstallAction';
 
 const useStyles = makeStyles(theme => ({
@@ -56,7 +57,14 @@ export default function SimpleTable({searchResults}) {
                 {row.name}
               </TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.description}</TableCell>
-              <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.score}</TableCell>
+              <TableCell style={{fontSize: 12, textAlign: 'left'}}>
+                <p>{ row.score.final ? Math.floor(row.score.final * 100) : '-'} <a data-tip data-for="scoreTooltip"><img style={{verticalAlign: 'sub'}} src={'images/info-14.png'}/></a></p>
+                <ReactTooltip id="scoreTooltip" place="bottom" type="info" effect="float">
+                  <p>Quality: { row.score.detail.quality ? Math.floor(row.score.detail.quality  * 100) : '-' }</p>
+                  <p>Popularity: { row.score.detail.popularity ? Math.floor(row.score.detail.popularity * 100) : '-'}</p>
+                  <p>Maintenance: { row.score.detail.maintenance ? Math.floor(row.score.detail.maintenance * 100) : '-'}</p>
+                </ReactTooltip>
+                </TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>
                 <a href={row.url} rel="noopener noreferrer" target="_blank">
                   {row.url}
