@@ -46,7 +46,7 @@ class App extends React.Component {
     return (
       <div className="App">
         <div className="search">
-          <span class="fa fa-search"></span>
+          <span className="fa fa-search"></span>
           <input
             type="text"
             placeholder="Enter the npm module here"

@@ -29,8 +29,8 @@ function createData({name, description, score, url}) {
   return ({
     name,
     description,
-    score: score && Math.floor(score.final * 100),
-    url
+    score,
+    url,
   });
 }
 
