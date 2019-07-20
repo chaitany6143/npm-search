@@ -64,7 +64,7 @@ export default function SimpleTable({searchResults}) {
                   <p>Maintenance: { row.score.detail.maintenance ? Math.floor(row.score.detail.maintenance * 100) : '-'}</p>
                 </ReactTooltip>
                 </TableCell>
-              <TableCell style={{fontSize: 20, textAlign: 'left'}}>
+              <TableCell style={{fontSize: 14, textAlign: 'left'}}>
                 {
                   row.links.homepage !== row.links.repository ? <a style={{color: 'black'}} href={row.links.homepage} rel="noopener noreferrer" target="_blank">
                       <span className="fa fa-home" />

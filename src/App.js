@@ -55,7 +55,7 @@ class App extends React.Component {
           <span className="fa fa-search"></span>
           <input
             type="text"
-            placeholder="Enter the npm module here"
+            placeholder="Search for npm packages.."
             value={text}
             onChange={this.onTextEntered}
           />
