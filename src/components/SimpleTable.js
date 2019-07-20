@@ -6,6 +6,7 @@ import TableCell from '@material-ui/core/TableCell';
 import TableHead from '@material-ui/core/TableHead';
 import TableRow from '@material-ui/core/TableRow';
 import Paper from '@material-ui/core/Paper';
+import ReactTooltip from 'react-tooltip'
 
 const useStyles = makeStyles(theme => ({
   root: {
@@ -32,7 +33,7 @@ function createData({name, description, score, url}) {
   return ({
     name,
     description,
-    score: score && score.final,
+    score,
     url
   });
 }
@@ -59,7 +60,14 @@ export default function SimpleTable({searchResults}) {
                 {row.name}
               </TableCell>
               <TableCell align="left">{row.description}</TableCell>
-              <TableCell align="left">{row.score}</TableCell>
+              <TableCell align="left">
+                <a data-tip data-for="scoreTooltip"><p>{row.score.final}</p></a>
+                <ReactTooltip id="scoreTooltip" place="bottom" type="info" effect="float">
+                  <p>Quality: {row.score.detail.quality}</p>
+                  <p>Popularity: {row.score.detail.popularity}</p>
+                  <p>Maintenance: {row.score.detail.maintenance}</p>
+                </ReactTooltip>
+                </TableCell>
               <TableCell align="left">
                 <a href={row.url} rel="noopener noreferrer" target="_blank">
                   {row.url}
