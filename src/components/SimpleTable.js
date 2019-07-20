@@ -32,7 +32,7 @@ function createData({name, description, score, url}) {
   return ({
     name,
     description,
-    score: score && score.final,
+    score: score && Math.floor(score.final * 100),
     url
   });
 }
@@ -55,12 +55,12 @@ export default function SimpleTable({searchResults}) {
         <TableBody>
           {data.map(row => (
             <TableRow key={row.name}>
-              <TableCell component="th" scope="row">
+              <TableCell component="th" scope="row" style={{fontSize: 12, fontFamily: 'monospace'}}>
                 {row.name}
               </TableCell>
-              <TableCell align="left">{row.description}</TableCell>
-              <TableCell align="left">{row.score}</TableCell>
-              <TableCell align="left">
+              <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.description}</TableCell>
+              <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.score}</TableCell>
+              <TableCell style={{fontSize: 12, textAlign: 'left'}}>
                 <a href={row.url} rel="noopener noreferrer" target="_blank">
                   {row.url}
                 </a>
