@@ -9,13 +9,14 @@ class App extends React.Component {
     text: '',
     searchResults: [],
     isLoadingResults: false,
+    init: true,
   };
 
   shouldSearch = () => this.state.text.length > 3;
 
   performSearch = () => {
     const { text } = this.state;
-    this.setState( { isLoadingResults: true}, () => {
+    this.setState( { isLoadingResults: true, init: false}, () => {
       fetchSearchResult(text).then(response => {
         this.setState({
           searchResults: response,
@@ -43,6 +44,11 @@ class App extends React.Component {
   render() {
     const {text, searchResults} = this.state;
 
+    const noResultsStyle = {
+      paddingTop: '20px',
+      opacity: '0.5'
+    }
+
     return (
       <div className="App">
         <div className="search">
@@ -56,7 +62,8 @@ class App extends React.Component {
         </div>
         { this.state.isLoadingResults && <Loader type="ThreeDots" color="#somecolor" height={80} width={80} /> }
         { this.state.searchResults.length > 0 && !this.state.isLoadingResults && <SimpleTable searchResults={searchResults}/> }
-        { this.state.searchResults.length === 0 && !this.state.isLoadingResults }
+        { !this.state.init && this.state.searchResults.length === 0 && !this.state.isLoadingResults 
+          && <div style={noResultsStyle}>No results found</div> }
       </div>
     );
   }

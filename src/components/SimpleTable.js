@@ -54,7 +54,7 @@ export default function SimpleTable({searchResults}) {
           {data.map(row => (
             <TableRow key={row.name}>
               <TableCell component="th" scope="row" style={{fontSize: 12, fontFamily: 'monospace'}}>
-                <a>{row.name}</a>
+                <a href={row.links.npm} target="_blank">{row.name}</a>
               </TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>{row.description ? row.description : '-'}</TableCell>
               <TableCell style={{fontSize: 12, textAlign: 'left'}}>
